@@ -362,13 +362,42 @@ body {
   display: flex;
   align-items: center;
 }
-.home-banner .home-banner-contents .cta-heading span {
+.home-banner .home-banner-contents .cta-heading .rotatable-text {
   min-width: 3.2em;
   text-align: center;
-  min-height: 1em;
+  min-height: 1.25em;
   padding-block: 0.2em;
   margin-inline-start: 0.5ch;
   border-bottom: 2px solid var(--clr-gray-24);
+  position: relative;
+}
+.home-banner .home-banner-contents .cta-heading .rotatable-text .word {
+  position: absolute;
+  width: 160px;
+  opacity: 0;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-style: italic;
+  line-height: 1em;
+}
+.home-banner .home-banner-contents .cta-heading .rotatable-text .letter {
+  display: inline-block;
+  position: relative;
+  float: left;
+  transform: translateZ(25px);
+  transform-origin: 50% 50% 25px;
+}
+.home-banner .home-banner-contents .cta-heading .rotatable-text .letter.out {
+  transform: rotateX(90deg);
+  transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.home-banner .home-banner-contents .cta-heading .rotatable-text .letter.behind {
+  transform: rotateX(-90deg);
+}
+.home-banner .home-banner-contents .cta-heading .rotatable-text .letter.in {
+  transform: rotateX(0deg);
+  transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .home-banner .home-banner-contents .cta-text {
   width: min(475px, 100%);
@@ -397,8 +426,8 @@ body {
   border: 1px solid var(--clr-green);
   position: absolute;
   bottom: var(--scroll-bottom, 12vh);
-  transition: border 50ms linear, background 250ms linear;
-  will-change: border, background;
+  transition: border 50ms linear, background 250ms linear, bottom 500ms cubic-bezier(0.23, 1.05, 0.23, 1.04);
+  will-change: border, background, bottom;
 }
 .home-banner .home-banner-contents .scroll-down span {
   position: relative;
