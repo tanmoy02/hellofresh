@@ -251,12 +251,13 @@
     position: relative;
 
     .cta-heading {
+      font-family: var(--ff-agrandir);
       font-size: 3.125rem;
       letter-spacing: -0.3px;
       display: flex;
       align-items: center;
 
-      .rotatable-text {
+      .typewrite {
         min-width: 3.2em;
         text-align: center;
         min-height: 1.25em;
@@ -265,37 +266,13 @@
         border-bottom: 2px solid var(--clr-gray-24);
         position: relative;
 
-        .word {
+        .wrap {
           position: absolute;
-          width: 160px;
-          opacity: 0;
           left: 0;
           top: 50%;
           transform: translateY(-50%);
           font-style: italic;
           line-height: 1em;
-        }
-
-        .letter {
-          display: inline-block;
-          position: relative;
-          float: left;
-          transform: translateZ(25px);
-          transform-origin: 50% 50% 25px;
-        }
-
-        .letter.out {
-          transform: rotateX(90deg);
-          transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-        }
-
-        .letter.behind {
-          transform: rotateX(-90deg);
-        }
-
-        .letter.in {
-          transform: rotateX(0deg);
-          transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
       }
     }
